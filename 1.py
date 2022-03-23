@@ -90,5 +90,11 @@ def login():
     return render_template('login.html', title='Аварийный доступ', form=form)
 
 
+@app.route('/distribution')
+def distribution():
+    f = ['dsgfdg', 'dsgregrt', 'ergrtgh', 'erhrthy', 'jtyju']
+    return render_template('k.html', title='Размещение по каютам', form=f)
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1')

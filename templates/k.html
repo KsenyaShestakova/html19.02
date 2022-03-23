@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ title }}</title>
+</head>
+<body>
+<h1>Размещение по каютам</h1>
+<l>
+    {% for user in form %}
+    <h5>{{ user }} - Каюта № {{ loop.index }} {% if loop.first %} - капитан корабля {% endif %}
+    </h5>
+    {% endfor %}
+</l>
+</body>
+</html>
