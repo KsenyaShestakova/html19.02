@@ -9,8 +9,10 @@ app.config['SECRET_KEY'] = 'yandexlyceum_secret_key'
 
 
 class LoginForm(FlaskForm):
-    username = StringField('Логин', validators=[DataRequired()])
-    password = PasswordField('Пароль', validators=[DataRequired()])
+    id_astronaut = StringField('ID астронавта', validators=[DataRequired()])
+    password_astronaut = PasswordField('Пароль астронавта', validators=[DataRequired()])
+    id_capitan = StringField('ID капитана', validators=[DataRequired()])
+    password_capitan = StringField('Пароль капитана', validators=[DataRequired()])
     remember_me = BooleanField('Запомнить меня')
     submit = SubmitField('Войти')
 
@@ -85,7 +87,7 @@ def login():
     form = LoginForm()
     if form.validate_on_submit():
         return redirect('/success')
-    return render_template('login.html', title='Авторизация', form=form)
+    return render_template('login.html', title='Аварийный доступ', form=form)
 
 
 if __name__ == '__main__':

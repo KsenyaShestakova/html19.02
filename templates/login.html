@@ -1,18 +1,46 @@
 {% extends "base.html" %}
 
 {% block content %}
-    <form action="" method="post" novalidate>
-        <div>
-            {{ form.csrf_token }}
-        </div>
-        {% for field in form if field.name != 'csrf_token' %}
-            <div>
-                {{ field.label() }}
-                {{ field() }}
-                {% for error in field.errors %}
-                    <div class="error">{{ error }}</div>
-                {% endfor %}
-            </div>
-        {% endfor %}
-    </form>
+<h1><img src="static\img\MARS-2-7.png">Аварийный доступ</h1>
+<form action="" method="post" novalidate>
+    {{ form.hidden_tag() }}
+    <p>
+        {{ form.id_astronaut.label }}<br>
+        {{ form.id_astronaut(class="form-control") }}<br>
+        {% for error in form.id_astronaut.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.password_astronaut.label }}<br>
+        {{ form.password_astronaut(class="form-control", type="password_astronaut") }}<br>
+        {% for error in form.password_astronaut.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.id_capitan.label }}<br>
+        {{ form.id_capitan(class="form-control", type="id_capitan") }}<br>
+        {% for error in form.id_capitan.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>
+        {{ form.password_capitan.label }}<br>
+        {{ form.password_capitan(class="form-control", type="password_capitan") }}<br>
+        {% for error in form.password_capitan.errors %}
+    <div class="alert alert-danger" role="alert">
+        {{ error }}
+    </div>
+    {% endfor %}
+    </p>
+    <p>{{ form.remember_me() }} {{ form.remember_me.label }}</p>
+    <p>{{ form.submit(type="submit", class="btn btn-primary") }}</p>
+</form>
 {% endblock %}
